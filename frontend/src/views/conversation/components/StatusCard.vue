@@ -68,7 +68,7 @@
               <div>
                 <n-icon class="mr-1">
                   <QueueFilled />
-                </n-icon>{{ $t('tips.gpt4_count_in_3_hours') }}
+                </n-icon>{{ $t('commons.gpt4CounIn3Hours') }}
               </div>
               <div>{{ serverStatus.gpt4_count_in_3_hours }}</div>
             </div>
