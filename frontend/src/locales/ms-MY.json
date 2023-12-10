@@ -184,7 +184,8 @@
     "myFileBrowser": "Gunakan pelayar fail",
     "content": "Kandungan",
     "executeCode": "Jalankan kod",
-    "completionLogs": "Log perbualan"
+    "completionLogs": "Log perbualan",
+    "gpt4CounIn3Hours":"Penggunaan GPT-4 / 3 jam"
   },
   "errors": {
     "403": "Ralat 403: Tiada kebenaran akses",

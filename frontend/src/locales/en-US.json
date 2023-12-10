@@ -186,7 +186,8 @@
     "executeCode": "Execute Code",
     "siteTitleFull": "ChatGPT Web Share",
     "completionLogs": "Completion Logs",
-    "time": "Time"
+    "time": "Time",
+    "gpt4CounIn3Hours":"GPT-4 dosage / 3h"
   },
   "errors": {
     "403": "403 error: access denied",

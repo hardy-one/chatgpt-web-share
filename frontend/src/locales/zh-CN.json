@@ -189,7 +189,8 @@
     "user": "用户",
     "time": "时间",
     "timeRange": "时间范围",
-    "limit": "限制"
+    "limit": "限制",
+    "gpt4CounIn3Hours":"GPT-4 用量 / 3h"
   },
   "errors": {
     "403": "403 错误：无访问权限",
