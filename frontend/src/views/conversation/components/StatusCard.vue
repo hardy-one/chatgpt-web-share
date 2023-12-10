@@ -53,6 +53,26 @@
               <div>{{ serverStatus.chatbot_waiting_count }}</div>
             </div>
           </n-list-item>
+          <n-list-item>
+            <div class="flex flex-row justify-between content-center">
+              <div>
+                <n-icon class="mr-1">
+                  <EventBusyFilled />
+                </n-icon>{{ $t('commons.isChatbotBusy') }}
+              </div>
+              <div>{{ serverStatus.is_chatbot_busy ? $t('commons.yes') : $t('commons.no') }}</div>
+            </div>
+          </n-list-item>
+          <n-list-item>
+            <div class="flex flex-row justify-between content-center">
+              <div>
+                <n-icon class="mr-1">
+                  <QueueFilled />
+                </n-icon>{{ $t('tips.gpt4_count_in_3_hours') }}
+              </div>
+              <div>{{ serverStatus.gpt4_count_in_3_hours }}</div>
+            </div>
+          </n-list-item>
         </n-list>
       </n-collapse-item>
     </n-collapse>
