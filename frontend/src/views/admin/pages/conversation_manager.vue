@@ -254,7 +254,7 @@ const columns = computed<DataTableColumns<BaseConversationSchema>>(() => [
     key: 'current_model',
     width: 200,
     render(row) {
-      return row.current_model ? getChatModelNameTrans(row.current_model) : t('commons.unknown');
+      return row.current_model ? getChatModelNameTrans(row.current_model, row.source) : t('commons.unknown');
     },
     sorter: 'default',
   },

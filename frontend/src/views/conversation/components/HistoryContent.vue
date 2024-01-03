@@ -12,7 +12,7 @@
         <n-text class="flex h-full items-center">
           {{ $t('commons.currentConversationModel') }}:
           <ChatGPTAvatar class="ml-2 mr-1" :model="convHistory?.current_model" :size="20" />
-          {{ getChatModelNameTrans(convHistory?.current_model || null) }} ({{ t(`sources.${convHistory?.source}`) }})
+          {{ getChatModelNameTrans(convHistory?.current_model || null, convHistory?.source || null) }} ({{ t(`sources.${convHistory?.source}`) }})
         </n-text>
         <n-button v-if="_fullscreen" class="absolute left-4 hide-in-print" text @click="toggleFullscreenHistory">
           <template #icon>

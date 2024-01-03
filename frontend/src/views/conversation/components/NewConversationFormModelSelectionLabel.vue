@@ -5,7 +5,7 @@
     </div>
     <div class="flex items-center">
       <div class="text-sm font-medium">
-        {{ t('models.' + props.model) }}
+        {{ t(`models.${props.source}.${props.model}`) }}
       </div>
       <!-- <div class="text-xs text-gray-400">
         {{ t(`modelDescriptions.${props.source}.${props.model}`) }}

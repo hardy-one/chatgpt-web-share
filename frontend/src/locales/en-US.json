@@ -356,11 +356,25 @@
     "gpt_4_browsing": "GPT-4 Web Browsing",
     "gpt_4_plugins": "GPT-4 Plugins",
     "gpt_4_code_interpreter": "GPT-4 Advanced Data Analysis",
-    "gpt_4_dalle": "GPT-4 DALL·E 3"
+    "gpt_4_dalle": "GPT-4 DALL·E 3",
+    "openai_api": {
+      "gpt_3_5": "Gemini Pro",
+      "gpt_4": "GPT-4 All Tools"
+    },
+    "openai_web": {
+      "gpt_3_5": "GPT-3.5",
+      "gpt_3_5_mobile": "GPT-3.5 Mobile",
+      "gpt_4": "GPT-4 All Tools",
+      "gpt_4_mobile": "GPT-4 Mobile",
+      "gpt_4_browsing": "GPT-4 Web Browsing",
+      "gpt_4_plugins": "GPT-4 Plugins",
+      "gpt_4_code_interpreter": "GPT-4 Advanced Data Analysis",
+      "gpt_4_dalle": "GPT-4 DALL·E 3"
+    }
   },
   "modelDescriptions": {
     "openai_api": {
-      "gpt_3_5": "The fastest model, great for most everyday tasks.",
+      "gpt_3_5": "Google's Gemini Pro",
       "gpt_4": "The most capable model, great for tasks that require creativity and advanced reasoning. Relatively slow."
     },
     "openai_web": {

@@ -17,6 +17,7 @@ import {
   OpenaiWebChatMessageTetherQuoteContent,
   OpenaiWebChatMessageTextContent,
   OpenaiWebChatModels,
+  ChatSourceTypes,
 } from '@/types/schema';
 const t = i18n.global.t as any;
 
@@ -44,10 +45,19 @@ export const getChatModelIconStyle = (model_name: OpenaiWebChatModels | OpenaiAp
   else return 'default';
 };
 
-export const getChatModelNameTrans = (model_name: OpenaiWebChatModels | OpenaiApiChatModels | string | null) => {
-  if (model_name == null) return t('commons.unknown');
-  if (allChatModelNames.includes(model_name)) return t(`models.${model_name}`);
-  else return `${t('commons.unknown')}(${model_name})`;
+export const getChatModelNameTrans = (model_name: OpenaiWebChatModels | OpenaiApiChatModels | string | null,
+  chat_source: ChatSourceTypes | string | null,
+) => {
+  if (chat_source == null) {
+    if (model_name == null) return t('commons.unknown');
+    if (allChatModelNames.includes(model_name)) return t(`models.${model_name}`);
+    else return `${t('commons.unknown')}(${model_name})`;
+  }
+  else {
+    if (model_name == null) return t('commons.unknown');
+    if (allChatModelNames.includes(model_name)) return t(`models.${chat_source}.${model_name}`);
+    else return `${t('commons.unknown')}(${model_name})`;
+  }
   // else return model_name;
 };
 
@@ -315,5 +325,5 @@ export function replaceMathDelimiters(input: string) {
 }
 
 export function dompurifyRenderedHtml(html: string) {
-  return DOMPurify.sanitize(html, {ALLOW_UNKNOWN_PROTOCOLS: true});
+  return DOMPurify.sanitize(html, { ALLOW_UNKNOWN_PROTOCOLS: true });
 }

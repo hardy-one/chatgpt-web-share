@@ -144,7 +144,7 @@ const columns = computed<DataTableColumns<AskLogDocument>>(() => [
     key: 'current_model',
     width: 80,
     render(row) {
-      return row.meta.model ? getChatModelNameTrans(row.meta.model) : t('commons.unknown');
+      return row.meta.model ? getChatModelNameTrans(row.meta.model, row.meta.source) : t('commons.unknown');
     },
     sorter: 'default',
   },
