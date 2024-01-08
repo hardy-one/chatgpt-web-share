@@ -186,6 +186,9 @@ class BaseChatMessage(BaseModel):
         Annotated[
             Union[OpenaiWebChatMessageMetadata, OpenaiApiChatMessageMetadata], Field(discriminator='source')]] = None
 
+    @validator('role', pre=True, always=True)
+    def set_role(cls, v):
+        return v or 'assistant'
 
 class OpenaiWebChatMessage(BaseChatMessage):
     source: Literal["openai_web"]
