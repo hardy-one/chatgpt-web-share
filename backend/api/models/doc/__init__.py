@@ -174,7 +174,7 @@ class OpenaiApiChatMessageTextContent(BaseModel):
 class BaseChatMessage(BaseModel):
     id: uuid.UUID
     source: SourceTypeLiteral
-    role: Literal['system', 'user', 'assistant', 'tool'] | str = None
+    role: Literal['system', 'user', 'assistant', 'tool', None] | str
     author_name: Optional[Literal['browser', 'python'] | str] = None  # rev: mapping[id].message.author.name
     model: Optional[str] = None  # rev: mapping[id].message.metadata.model_slug -> ChatModel
     create_time: Optional[datetime.datetime] = None
