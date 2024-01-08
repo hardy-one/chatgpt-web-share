@@ -335,7 +335,7 @@ export interface components {
        */
       source: "openai_web" | "openai_api";
       /** Role */
-      role: ("system" | "user" | "assistant" | "tool") | string | null;
+      role: ("system" | "user" | "assistant" | "tool") | string;
       /** Author Name */
       author_name?: ("browser" | "python") | string | null;
       /** Model */
@@ -829,7 +829,7 @@ export interface components {
        */
       source: "openai_api";
       /** Role */
-      role: ("system" | "user" | "assistant" | "tool") | string | null;
+      role: ("system" | "user" | "assistant" | "tool") | string;
       /** Author Name */
       author_name?: ("browser" | "python") | string | null;
       /** Model */
