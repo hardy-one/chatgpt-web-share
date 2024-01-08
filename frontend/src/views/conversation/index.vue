@@ -235,7 +235,7 @@ const makeNewConversation = () => {
   popupNewConversationDialog(async (newConversationInfo: NewConversationInfo) => {
     if (!newConversationInfo.source || !newConversationInfo.model) return;
     if (newConversationInfo.source == 'openai_api')
-      newConversationInfo.title = newConversationInfo.title || `New Chat (${t('models.' + newConversationInfo.model)})`;
+      newConversationInfo.title = newConversationInfo.title || `New Chat (${t('models.openai_api.' + newConversationInfo.model)})`;
     if (newConversationInfo.openaiWebPlugins && newConversationInfo.model !== 'gpt_4_plugins') {
       newConversationInfo.openaiWebPlugins = null;
     }
