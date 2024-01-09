@@ -394,8 +394,8 @@
     }
   },
   "sources": {
-    "openai_web": "OpenAI Web",
-    "openai_api": "OpenAI API"
+    "openai_web": "Web",
+    "openai_api": "API"
   },
   "sources_short": {
     "openai_web": "Web",
