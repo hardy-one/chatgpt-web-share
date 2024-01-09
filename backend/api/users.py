@@ -98,7 +98,7 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, Integer]):
 
     async def create_with_user_dict(self, user_dict: dict, user_setting: Optional[UserSettingSchema] = None):
 
-        user_setting = user_setting or UserSettingSchema.default()
+        user_setting = user_setting or UserSettingSchema.unlimited()
 
         async with get_async_session_context() as session:
             user = User(**user_dict)
