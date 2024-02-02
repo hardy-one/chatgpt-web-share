@@ -3,6 +3,8 @@ import json
 import uuid
 from mimetypes import guess_type
 from typing import AsyncGenerator
+import base64
+import websockets
 
 import aiofiles
 import httpx
@@ -331,7 +333,7 @@ class OpenaiWebChatManager:
 
                 if not (
                     '"status": "finished_successfully"' in line
-                    and '"timestamp_": "absolute"' in line
+                    # and '"timestamp_": "absolute"' in line
                     and '"is_complete": true' in line
                 ):
                     continue
