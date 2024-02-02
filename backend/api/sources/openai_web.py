@@ -304,27 +304,43 @@ class OpenaiWebChatManager:
                 data=data_json,
                 timeout=timeout,
         ) as response:
-            await _check_response(response)
-            async for line in response.aiter_lines():
-                if not line or line is None:
-                    continue
-                if "data: " in line:
-                    line = line[6:]
-                if "[DONE]" in line:
-                    break
+            wss_url = (
+                response.json()['wss_url']
+            )
 
-                try:
-                    line = json.loads(line)
-                except json.decoder.JSONDecodeError:
-                    continue
-                if not _check_fields(line):
-                    if "error" in line:
-                        raise OpenaiWebException(line["error"])
-                    else:
-                        logger.warning(f"Field missing. Details: {str(line)}")
+            async with websockets.connect(wss_url) as ws:
+                while True:
+                    message = await ws.recv()  # 接收消息
+                    line = base64.b64decode(json.loads(message)['body']).decode('utf-8')
+
+            # await _check_response(response)
+            # async for line in response.aiter_lines():
+                    if not line or line is None:
                         continue
+                    if "data: " in line:
+                        line = line[6:]
+                    if "[DONE]" in line:
+                        break
 
-                yield line
+                    if not (
+                        '"status": "finished_successfully"' in line
+                        and '"timestamp_": "absolute"' in line
+                        and '"is_complete": true' in line
+                    ):
+                        continue
+                    
+                    try:
+                        line = json.loads(line)
+                    except json.decoder.JSONDecodeError:
+                        continue
+                    if not _check_fields(line):
+                        if "error" in line:
+                            raise OpenaiWebException(line["error"])
+                        else:
+                            logger.warning(f"Field missing. Details: {str(line)}")
+                            continue
+
+                    yield line
 
     async def delete_conversation(self, conversation_id: str):
         # await self.chatbot.delete_conversation(conversation_id)
