@@ -305,7 +305,7 @@ class OpenaiWebChatManager:
         #         timeout=timeout,
         # ) as response:
             
-        response = await session.post(
+        response = await self.session.post(
             f"{config.openai_web.chatgpt_base_url}conversation",
             data=data_json,
             timeout=timeout,
